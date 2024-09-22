@@ -111,13 +111,13 @@ const List = ({ filterData, setPolyline, setPositions, setAmenityDatas, setCente
               {data.name ? (
                 <>
                   {data.Classification === "화장실" ? (
-                    <CardImage src="/public/toilet.png" />
+                    <CardImage src="/toilet.png" />
                   ) : data.Classification === "급수대" ? (
-                    <CardImage src="/public/waterSupply.png" />
+                    <CardImage src="/waterSupply.png" />
                   ) : data.Classification === "공기주입기" ? (
-                    <CardImage src="/public/anAirInjector.png" />
+                    <CardImage src="/anAirInjector.png" />
                   ) : data.Classification === "인증센터" ? (
-                    <CardImage src="/public/CertificationCenter.png" />
+                    <CardImage src="/CertificationCenter.png" />
                   ) : null}
                   <CardText>
                     <CardTitle>{data.Classification}</CardTitle>
@@ -133,7 +133,7 @@ const List = ({ filterData, setPolyline, setPositions, setAmenityDatas, setCente
                 </>
               ) : (
                 <>
-                  <CardImage src="/public/bike.png" />
+                  <CardImage src="/bike.png" />
                   <CardText>
                     <CardTitle>{data.BICYCLE_PATH}</CardTitle>
                     <CardRoad>{data.Classification}</CardRoad>
