@@ -1,8 +1,8 @@
+// main.jsx or index.jsx
+import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +24,5 @@ const AppWithKakaoMap = () => {
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <AppWithKakaoMap />
-    {/* <ReactQueryDevtools /> */}
   </QueryClientProvider>
 );
