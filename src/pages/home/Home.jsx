@@ -301,7 +301,7 @@ const Home = () => {
       </Container>
       <CurrentLocation>
         <CurrentLocationButton onClick={() => handleCurrentLocation()}>
-          <CurrentLocationImg src="/currentLocation.png" alt="location" />
+          <CurrentLocationImg src="/CurrentLocation.png" alt="location" />
         </CurrentLocationButton>
       </CurrentLocation>
     </>
