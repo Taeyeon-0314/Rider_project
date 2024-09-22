@@ -61,7 +61,7 @@ const Home = () => {
       insertFeed(polyline, {
         onSuccess: () => {
           Swal.fire({
-            imageUrl: "/assets/finishImg.png",
+            imageUrl: "/finishImg.png",
             imageWidth: 180,
             imageHeight: 100,
             title: `
@@ -141,7 +141,7 @@ const Home = () => {
               <MapMarker
                 position={location.center}
                 image={{
-                  src: "/assets/cyclist.png",
+                  src: "/cyclist.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
@@ -150,13 +150,13 @@ const Home = () => {
                 const type = (el) => {
                   switch (el.title) {
                     case "화장실":
-                      return "/assets/toiletMarker.png";
+                      return "/toiletMarker.png";
                     case "급수대":
-                      return "/assets/waterSupplyMarker.png";
+                      return "/waterSupplyMarker.png";
                     case "공기주입기":
-                      return "/assets/airInjectorMarker.png";
+                      return "/airInjectorMarker.png";
                     case "인증센터":
-                      return "/assets/certificateMarker.png";
+                      return "/certificateMarker.png";
                     default:
                       return "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
                   }
@@ -192,7 +192,7 @@ const Home = () => {
               <MapMarker
                 position={location.center}
                 image={{
-                  src: "/assets/cyclist.png",
+                  src: "/cyclist.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
@@ -205,7 +205,7 @@ const Home = () => {
               <MapMarker
                 position={{ lat: polyline.roadLine[0].LINE_XP, lng: polyline.roadLine[0].LINE_YP }}
                 image={{
-                  src: "/assets/startImg.png",
+                  src: "/startImg.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
@@ -268,13 +268,13 @@ const Home = () => {
                 const type = (el) => {
                   switch (el.Classification) {
                     case "화장실":
-                      return "/assets/toiletMarker.png";
+                      return "/toiletMarker.png";
                     case "급수대":
-                      return "/assets/waterSupplyMarker.png";
+                      return "/waterSupplyMarker.png";
                     case "공기주입기":
-                      return "/assets/airInjectorMarker.png";
+                      return "/airInjectorMarker.png";
                     case "인증센터":
-                      return "/assets/certificateMarker.png";
+                      return "/certificateMarker.png";
                     default:
                       return "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
                   }
