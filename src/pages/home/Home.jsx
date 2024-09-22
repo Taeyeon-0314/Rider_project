@@ -61,7 +61,7 @@ const Home = () => {
       insertFeed(polyline, {
         onSuccess: () => {
           Swal.fire({
-            imageUrl: "/finishImg.png",
+            imageUrl: "./assets/finishImg.png",
             imageWidth: 180,
             imageHeight: 100,
             title: `
@@ -141,7 +141,7 @@ const Home = () => {
               <MapMarker
                 position={location.center}
                 image={{
-                  src: "/cyclist.png",
+                  src: "./assets/cyclist.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
@@ -150,13 +150,13 @@ const Home = () => {
                 const type = (el) => {
                   switch (el.title) {
                     case "화장실":
-                      return "/toiletMarker.png";
+                      return "./assets/toiletMarker.png";
                     case "급수대":
-                      return "/waterSupplyMarker.png";
+                      return "./assets/waterSupplyMarker.png";
                     case "공기주입기":
-                      return "/airInjectorMarker.png";
+                      return "./assets/airInjectorMarker.png";
                     case "인증센터":
-                      return "/certificateMarker.png";
+                      return "./assets/certificateMarker.png";
                     default:
                       return "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
                   }
@@ -205,7 +205,7 @@ const Home = () => {
               <MapMarker
                 position={{ lat: polyline.roadLine[0].LINE_XP, lng: polyline.roadLine[0].LINE_YP }}
                 image={{
-                  src: "/startImg.png",
+                  src: "./assets/startImg.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
@@ -268,13 +268,13 @@ const Home = () => {
                 const type = (el) => {
                   switch (el.Classification) {
                     case "화장실":
-                      return "/toiletMarker.png";
+                      return "./assets/toiletMarker.png";
                     case "급수대":
-                      return "/waterSupplyMarker.png";
+                      return "./assets/waterSupplyMarker.png";
                     case "공기주입기":
-                      return "/airInjectorMarker.png";
+                      return "./assets/airInjectorMarker.png";
                     case "인증센터":
-                      return "/certificateMarker.png";
+                      return "./assets/certificateMarker.png";
                     default:
                       return "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
                   }
