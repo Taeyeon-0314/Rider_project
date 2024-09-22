@@ -192,7 +192,7 @@ const Home = () => {
               <MapMarker
                 position={location.center}
                 image={{
-                  src: "/cyclist.png",
+                  src: "./assets/cyclist.png",
                   size: { width: 64, height: 69 },
                   options: { offset: { x: 27, y: 69 } }
                 }}
