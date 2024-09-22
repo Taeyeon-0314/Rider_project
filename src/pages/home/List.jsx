@@ -111,13 +111,13 @@ const List = ({ filterData, setPolyline, setPositions, setAmenityDatas, setCente
               {data.name ? (
                 <>
                   {data.Classification === "화장실" ? (
-                    <CardImage src="/toilet.png" />
+                    <CardImage src="./assets/toilet.png" />
                   ) : data.Classification === "급수대" ? (
-                    <CardImage src="/waterSupply.png" />
+                    <CardImage src="./assets/waterSupply.png" />
                   ) : data.Classification === "공기주입기" ? (
-                    <CardImage src="/anAirInjector.png" />
+                    <CardImage src="./assets/anAirInjector.png" />
                   ) : data.Classification === "인증센터" ? (
-                    <CardImage src="/CertificationCenter.png" />
+                    <CardImage src="./assets/CertificationCenter.png" />
                   ) : null}
                   <CardText>
                     <CardTitle>{data.Classification}</CardTitle>
