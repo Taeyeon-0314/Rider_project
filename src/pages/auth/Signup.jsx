@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "../../components/AuthForm";
 import { register } from "../../api/auth";
+import styled from "styled-components";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -17,17 +18,42 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center mt-40 space-y-10">
-      <h1 className="text-3xl text-center">회원가입</h1>
+    <Container>
+      <Title>회원가입</Title>
       <AuthForm mode="signup" onSubmit={handleSignup} />
-      <p className="text-sm">
-        이미 계정이 있으신가요?{" "}
-        <Link to="/login" className="text-gray-400 hover:text-blue-400 underline underline-offset-4">
-          로그인 바로가기
-        </Link>
-      </p>
-    </div>
+      <Text>
+        이미 계정이 있으신가요? <StyledLink> 로그인 바로가기</StyledLink>
+      </Text>
+    </Container>
   );
 };
 
 export default Signup;
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  gap: 2.5rem;
+`;
+
+const Title = styled.h1`
+  font-size: 1.875rem;
+  text-align: center;
+`;
+
+const Text = styled.p`
+  font-size: 0.875rem;
+`;
+
+const StyledLink = styled(Link)`
+  color: gray;
+  &:hover {
+    color: #3b82f6;
+  }
+  text-decoration: underline;
+  text-underline-offset: 4px;
+`;

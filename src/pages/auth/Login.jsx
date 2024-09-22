@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "../../components/AuthForm";
 import { getUserProfile, login } from "../../api/auth";
 import useUserStore from "../../store/useUserStore";
+import styled from "styled-components";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,17 +21,42 @@ const Login = () => {
     }
   };
   return (
-    <div className="w-full flex flex-col items-center justify-center mt-40 space-y-10">
-      <h1 className="text-3xl text-center">로그인</h1>
+    <Container>
+      <Title>로그인</Title>
       <AuthForm mode="login" onSubmit={handleLogin} />
-      <p className="text-sm">
-        계정이 없으신가요?{" "}
-        <Link to="/signup" className="text-gray-400 hover:text-blue-400 underline underline-offset-4">
-          회원가입 바로가기
-        </Link>
-      </p>
-    </div>
+      <Text>
+        계정이 없으신가요? <StyledLink>회원가입 바로가기</StyledLink>
+      </Text>
+    </Container>
   );
 };
 
 export default Login;
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  gap: 2.5rem;
+`;
+
+const Title = styled.h1`
+  font-size: 1.875rem;
+  text-align: center;
+`;
+
+const Text = styled.p`
+  font-size: 0.875rem;
+`;
+
+const StyledLink = styled(Link)`
+  color: gray;
+  &:hover {
+    color: #3b82f6;
+  }
+  text-decoration: underline;
+  text-underline-offset: 4px;
+`;

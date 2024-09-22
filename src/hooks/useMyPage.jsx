@@ -40,19 +40,21 @@ const useMyPage = (hasNextPage, isFetchingNextPage, fetchNextPage) => {
         }
 
         try {
-          const { setUser, user } = useUserStore.getState();
+          const { setUser } = useUserStore.getState();
           const response = await updateProfile({ nickname });
-          if (!response.success) {
-            return Swal.showValidationMessage(`Error: ${response.message}`);
+
+          if (!response.data.success) {
+            return Swal.showValidationMessage(`Error: ${response.data.message}`);
           }
-          setUser({
-            ...user,
-            nickname: response.nickname
-          });
-          return response;
+
+          setUser((prevUser) => ({
+            ...prevUser,
+            nickname: response.data.nickname
+          }));
+          return response.data;
         } catch (error) {
           console.error("Error occurred:", error);
-          if (error.status == 401) {
+          if (error.response && error.response.status === 401) {
             Swal.fire({
               icon: "error",
               title: `로그인 만료\n다시 로그인해주세요!`,
@@ -82,6 +84,7 @@ const useMyPage = (hasNextPage, isFetchingNextPage, fetchNextPage) => {
       }
       return result.value.nickname;
     });
+
   return { myFeedRef, confirmUpdate };
 };
 

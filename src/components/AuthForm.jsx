@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styled from "styled-components";
 
 const AuthForm = ({ mode, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -20,75 +23,69 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-1/3">
-      <input
-        type="text"
-        name="id"
-        value={formData.id}
-        onChange={handleChange}
-        placeholder="아이디"
-        required
-        className="w-full px-4 py-3 rounded-full text-sm font-normal text-black
-        caret-transparent
-        focus:opacity-80
-        focus:outline-none 
-        focus:ring-1
-        focus:ring-blue-500 
-        focus:ring-offset-1
-        transition 
-        duration-300"
-      />
-      <input
+    <Wrapper onSubmit={handleSubmit}>
+      <ToastContainer />
+      <StyledInput type="text" name="id" value={formData.id} onChange={handleChange} placeholder="아이디" required />
+      <StyledInput
         type="password"
         name="password"
         value={formData.password}
         onChange={handleChange}
         placeholder="비밀번호"
         required
-        className="w-full px-4 py-3 rounded-full text-sm font-normal text-black mt-4
-        caret-transparent
-        focus:opacity-80
-        focus:outline-none 
-        focus:ring-1
-        focus:ring-blue-500 
-        focus:ring-offset-1
-        transition 
-        duration-300"
       />
       {mode === "signup" && (
-        <input
+        <StyledInput
           type="text"
           name="nickname"
           value={formData.nickname}
           onChange={handleChange}
           placeholder="닉네임"
           required
-          className="w-full px-4 py-3 rounded-full text-sm font-normal text-black mt-4
-        caret-transparent
-        focus:opacity-80
-        focus:outline-none 
-        focus:ring-1
-        focus:ring-blue-500 
-        focus:ring-offset-1 
-        transition 
-        duration-300"
         />
       )}
-      <button
-        type="submit"
-        className="w-full text-m font-light bg-black text-white py-4 rounded-full mt-6
-        hover:invert
-        hover:outline-none
-        hover:ring-1
-        hover:ring-white
-        hover:ring-offset-1  
-        transition 
-        duration-200"
-      >
-        {mode === "login" ? "로그인하기" : "회원가입하기"}
-      </button>
-    </form>
+      <StyledButton type="submit">{mode === "login" ? "로그인하기" : "회원가입하기"}</StyledButton>
+    </Wrapper>
   );
 };
 
 export default AuthForm;
+
+const Wrapper = styled.form`
+  width: 30%;
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: black;
+  caret-color: transparent;
+  margin-bottom: 16px;
+  transition: opacity 0.3s, box-shadow 0.3s;
+
+  &:focus {
+    opacity: 0.8;
+    box-shadow: 0 0 0 1px #ffffff, 0 0 0 4px rgb(141, 198, 255);
+    outline: none;
+  }
+`;
+
+const StyledButton = styled.button`
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: black;
+  color: white;
+  padding: 16px;
+  border-radius: 9999px;
+  transition: filter 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    filter: invert(1);
+    outline: none;
+    box-shadow: 0 0 0 1px white, 0 0 0 4px rgba(255, 255, 255, 0.5);
+  }
+`;

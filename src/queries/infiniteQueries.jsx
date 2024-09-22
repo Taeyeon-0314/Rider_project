@@ -1,11 +1,11 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { getFeedPages, getFeedsByPageNum } from "../api/feedApi";
 import useUserStore from "../store/useUserStore";
 import { queryKeys } from "./query.keys";
 
 export const useMyFeedsInfiniteQuery = () => {
   const { user } = useUserStore();
-  return useInfiniteQuery({
+  return useSuspenseInfiniteQuery({
     queryKey: queryKeys.boardController.myFeeds(),
     queryFn: ({ pageParam = 1 }) => getFeedsByPageNum({ pageParam, userId: user.id }),
 
@@ -17,7 +17,7 @@ export const useMyFeedsInfiniteQuery = () => {
 };
 
 export const useAllFeedsInfiniteQuery = () => {
-  return useInfiniteQuery({
+  return useSuspenseInfiniteQuery({
     queryKey: queryKeys.boardController.feeds(),
     queryFn: getFeedPages,
     getNextPageParam: (lastPage, pages) => {

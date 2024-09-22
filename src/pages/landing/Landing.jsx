@@ -9,9 +9,11 @@ import landing_firstIcon from "../../assets/landing_firstIcon.png";
 import landing_firstImg from "../../assets/landing_firstImg.png";
 import landing_secondIcon from "../../assets/landing_secondIcon.png";
 import landing_secondImg from "../../assets/landing_secondImg.png";
+import TopButton from "../feed/TopButton";
 
 const Landing = () => {
   const targetRef = useRef();
+  const secondSectionRef = useRef();
   const navigate = useNavigate();
   const { success, fail, weatherIconURL } = useLandingPage();
 
@@ -20,42 +22,48 @@ const Landing = () => {
   }, []);
 
   return (
-    <LandingWrapper $image={landing_background}>
-      <TopSection>
-        <LandingTop>
-          <p>
-            <span>오늘 [</span>
-            <img src={weatherIconURL} />
-            <span>] 한데...</span>
-          </p>
-          <p>
-            <span>[RIDERS] 어때? 🚴</span>
-          </p>
-          <RedirectButton onClick={() => navigate("/home")}>바로가기</RedirectButton>
-          <DownScrollButton onClick={() => scrollToTargetRef(targetRef)}>
-            <img src={downScroll} />
-          </DownScrollButton>
-        </LandingTop>
-      </TopSection>
-      <section ref={targetRef}>
-        <LandingItemWrapper>
-          <img src={landing_firstIcon} />
-          <h3>지도로 자전거 길을 볼 수 있습니다.</h3>
-          <p>원하는 자전거길을 검색하고, 근처 라이딩에 필요한 요소를 확인해보세요!</p>
-          <LandingPageImg src={landing_firstImg} />
-        </LandingItemWrapper>
-      </section>
-      <HLine />
-      <section>
-        <LandingItemWrapper>
-          <img src={landing_secondIcon} />
-          <h3>내가 간 곳을 모아볼 수 있습니다.</h3>
-          <p>내가 라이딩한 코스를 기록하고, 확인해보세요!</p>
-          <p>다른사람의 라이딩 코스도 확인 할 수 있습니다!</p>
-          <LandingPageImg src={landing_secondImg} />
-        </LandingItemWrapper>
-      </section>
-    </LandingWrapper>
+    <>
+      <LandingWrapper $image={landing_background}>
+        <TopSection>
+          <LandingTop>
+            <p>
+              <span>오늘 [</span>
+              <img src={weatherIconURL} />
+              <span>] 한데...</span>
+            </p>
+            <p>
+              <span>[RIDERS] 어때? 🚴</span>
+            </p>
+            <RedirectButton onClick={() => navigate("/home")}>바로가기</RedirectButton>
+            <DownScrollButton onClick={() => scrollToTargetRef(targetRef)}>
+              <img src={downScroll} />
+            </DownScrollButton>
+          </LandingTop>
+        </TopSection>
+        <section ref={targetRef}>
+          <LandingItemWrapper>
+            <img src={landing_firstIcon} />
+            <h3>지도로 자전거 길을 볼 수 있습니다.</h3>
+            <p>원하는 자전거길을 검색하고, 근처 라이딩에 필요한 요소를 확인해보세요!</p>
+            <LandingPageImg src={landing_firstImg} />
+            <DownScrollButton onClick={() => scrollToTargetRef(secondSectionRef)}>
+              <img src={downScroll} />
+            </DownScrollButton>
+          </LandingItemWrapper>
+        </section>
+        <HLine />
+        <section ref={secondSectionRef}>
+          <LandingItemWrapper>
+            <img src={landing_secondIcon} />
+            <h3>내가 간 곳을 모아볼 수 있습니다.</h3>
+            <p>내가 라이딩한 코스를 기록하고, 확인해보세요!</p>
+            <p>다른사람의 라이딩 코스도 확인 할 수 있습니다!</p>
+            <LandingPageImg src={landing_secondImg} />
+          </LandingItemWrapper>
+        </section>
+      </LandingWrapper>
+      <TopButton />
+    </>
   );
 };
 
