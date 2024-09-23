@@ -169,7 +169,7 @@ const CardList = styled.div`
   display: flex;
   width: 90%;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 5px; */
 `;
 const CardImage = styled.img`
   display: flex;
@@ -182,7 +182,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100px;
+  height: 95px;
   margin: 5px;
   padding: 10px;
   background-color: #000000;

@@ -342,7 +342,7 @@ const Container = styled.div`
   /* gap: 20px; */
   width: 100%;
   /* height: 100%; */
-  height: 93vh;
+  height: 92vh;
 
   /* height: 70%; */
   /* margin: 20px auto; */
@@ -353,6 +353,7 @@ const Title = styled.div`
   color: #ffffff;
   font-size: 20px;
   font-weight: 700;
+  margin-left: 5px;
   margin-bottom: 5px;
   margin-top: 10px;
   text-align: left;
@@ -365,20 +366,20 @@ const SearchFilterDiv = styled.div`
   /* align-items: center; */
   /* max-height: 100%; */
   /* min-height: 100vh; */
-  height: 93vh;
+  /* height: 93vh; */
 
   width: 23%;
   /* height: 100%; */
   border-radius: 10px;
   background: linear-gradient(180deg, #667386 0%, #030303 100%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  /* padding: 15px; */
 `;
 
 const MapContainer = styled.div`
   width: 77%;
   /* height: 960vh; */
-  height: 93vh;
+  height: 92vh;
   /* max-height: 960px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;

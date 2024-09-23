@@ -67,7 +67,7 @@ const Pagination = ({ totalItems, currentPage, setCurrentPage, PAGE_ITEMS, PAGE_
 
 const Paging = styled.div`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 3px;
   display: flex;
   justify-content: center;
   gap: 5px;
