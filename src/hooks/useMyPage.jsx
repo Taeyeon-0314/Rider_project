@@ -43,17 +43,16 @@ const useMyPage = (hasNextPage, isFetchingNextPage, fetchNextPage) => {
           const { setUser } = useUserStore.getState();
           const response = await updateProfile({ nickname });
 
-          if (!response.data.success) {
+          if (!response.success) {
             return Swal.showValidationMessage(`Error: ${response.data.message}`);
           }
 
-          setUser((prevUser) => ({
-            ...prevUser,
-            nickname: response.data.nickname
-          }));
+          setUser({
+            ...user,
+            nickname: response.nickname
+          });
           return response.data;
         } catch (error) {
-          console.error("Error occurred:", error);
           if (error.response && error.response.status === 401) {
             Swal.fire({
               icon: "error",
@@ -79,10 +78,10 @@ const useMyPage = (hasNextPage, isFetchingNextPage, fetchNextPage) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: `${result.value.nickname}으로\n변경되었습니다!`
+          title: `${result.value}으로\n변경되었습니다!`
         });
       }
-      return result.value.nickname;
+      return result.value;
     });
 
   return { myFeedRef, confirmUpdate };
