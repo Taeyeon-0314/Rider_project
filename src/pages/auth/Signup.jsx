@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "../../components/AuthForm";
 import { register } from "../../api/auth";
 import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -10,19 +11,35 @@ const Signup = () => {
   const handleSignup = async (formData) => {
     try {
       const response = await register(formData);
-      alert("회원가입에 완료했습니다. 로그인해주세요.");
-      navigate("/login");
+      if (response) {
+        toast.success("회원가입 성공!", {
+          position: "top-left",
+          autoClose: 3000
+        });
+        navigate("/home");
+      }
     } catch (error) {
-      alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+      if (error.response && error.response.data.message) {
+        toast.error(<>{error.response.data.message}</>, {
+          position: "top-left",
+          autoClose: 3000
+        });
+      } else {
+        toast.error("이미 존재하는 유저입니다.", {
+          position: "top-left",
+          autoClose: 3000
+        });
+      }
     }
   };
 
   return (
     <Container>
+      <ToastContainer theme="dark" style={{ width: "260px", lineHeight: "1.4" }} />
       <Title>회원가입</Title>
       <AuthForm mode="signup" onSubmit={handleSignup} />
       <Text>
-        이미 계정이 있으신가요? <StyledLink> 로그인 바로가기</StyledLink>
+        이미 계정이 있으신가요? <StyledLink to="/login"> 로그인 바로가기</StyledLink>
       </Text>
     </Container>
   );

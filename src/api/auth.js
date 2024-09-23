@@ -23,6 +23,7 @@ export const getUserProfile = async () => {
       Authorization: `Bearer ${accessToken}`
     }
   });
+
   return response.data;
 };
 

@@ -19,9 +19,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* 랜딩 페이지는 Layout을 적용하지 않음 */}
         <Route path="/" element={<Landing />} />
-
         {/* Layout을 적용할 라우트 설정 */}
         <Route element={<MainLayout />}>
           <Route path="/home" element={<Home />} />

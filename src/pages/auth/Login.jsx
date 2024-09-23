@@ -3,6 +3,7 @@ import AuthForm from "../../components/AuthForm";
 import { getUserProfile, login } from "../../api/auth";
 import useUserStore from "../../store/useUserStore";
 import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,22 +11,34 @@ const Login = () => {
 
   const handleLogin = async (formData) => {
     try {
-      const loginData = await login(formData);
-      setAccessToken(loginData.accessToken);
-      const userProfile = await getUserProfile();
-      setUser(userProfile);
+      const response = await login(formData);
+      if (response) {
+        setAccessToken(response.accessToken);
+        const userProfile = await getUserProfile();
+        setUser(userProfile);
 
-      navigate("/home");
+        toast.success("로그인 성공!", {
+          position: "top-left",
+          autoClose: 3000
+        });
+        navigate("/home");
+      }
     } catch (error) {
-      alert("로그인에 실패했습니다. 다시 시도해주세요.");
+      if (error.response && error.response.data.message) {
+        toast.error(<>{error.response.data.message}</>, {
+          position: "top-left",
+          autoClose: 3000
+        });
+      }
     }
   };
   return (
     <Container>
+      <ToastContainer theme="dark" style={{ width: "260px", lineHeight: "1.4" }} />
       <Title>로그인</Title>
       <AuthForm mode="login" onSubmit={handleLogin} />
       <Text>
-        계정이 없으신가요? <StyledLink>회원가입 바로가기</StyledLink>
+        계정이 없으신가요? <StyledLink to="/signup">회원가입 바로가기</StyledLink>
       </Text>
     </Container>
   );

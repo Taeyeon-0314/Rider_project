@@ -7,7 +7,7 @@
 
 ## 🔥배포 링크
 
-[Riders - 내일배움캠프 6기 4조](https://naver.com)
+[Riders - 내일배움캠프 6기 4조](https://www.bicyclerider.site/)
 
 <br/>
 
@@ -15,6 +15,106 @@
 
 <details>
 <summary>폴더구조</summary>
+📦Rider_project<br />
+ ┣ 📂public<br />
+ ┃ ┣ 📜airInjectorMarker.png<br />
+ ┃ ┣ 📜anAirInjector.png<br />
+ ┃ ┣ 📜bike.png<br />
+ ┃ ┣ 📜certificateMarker.png<br />
+ ┃ ┣ 📜CertificationCenter.png<br />
+ ┃ ┣ 📜CurrentLocation.png<br />
+ ┃ ┣ 📜cyclist.png<br />
+ ┃ ┣ 📜favicon.svg<br />
+ ┃ ┣ 📜finishImg.png<br />
+ ┃ ┣ 📜startImg.png<br />
+ ┃ ┣ 📜toilet.png<br />
+ ┃ ┣ 📜toiletMarker.png<br />
+ ┃ ┣ 📜vite.svg<br />
+ ┃ ┣ 📜waterSupply.png<br />
+ ┃ ┗ 📜waterSupplyMarker.png<br />
+ ┣ 📂src<br />
+ ┃ ┣ 📂api<br />
+ ┃ ┃ ┣ 📜auth.js<br />
+ ┃ ┃ ┣ 📜feedApi.js<br />
+ ┃ ┃ ┣ 📜FilterRoadInformation.js<br />
+ ┃ ┃ ┗ 📜weatherApi.js<br />
+ ┃ ┣ 📂assets<br />
+ ┃ ┃ ┣ 📜downScroll.png<br />
+ ┃ ┃ ┣ 📜homeIcon.svg<br />
+ ┃ ┃ ┣ 📜landing_background.png<br />
+ ┃ ┃ ┣ 📜landing_firstIcon.png<br />
+ ┃ ┃ ┣ 📜landing_firstImg.png<br />
+ ┃ ┃ ┣ 📜landing_secondIcon.png<br />
+ ┃ ┃ ┗ 📜landing_secondImg.png<br />
+ ┃ ┣ 📂axiosInstance<br />
+ ┃ ┃ ┣ 📜authInstance.js<br />
+ ┃ ┃ ┣ 📜feed.js<br />
+ ┃ ┃ ┣ 📜information.js<br />
+ ┃ ┃ ┗ 📜weatherInstance.js<br />
+ ┃ ┣ 📂components<br />
+ ┃ ┃ ┣ 📂common<br />
+ ┃ ┃ ┃ ┗ 📜KakaoMap.jsx<br />
+ ┃ ┃ ┣ 📜AuthForm.jsx<br />
+ ┃ ┃ ┣ 📜GlobalLoading.jsx<br />
+ ┃ ┃ ┣ 📜Layout.jsx<br />
+ ┃ ┃ ┗ 📜ProtectedRoute.jsx<br />
+ ┃ ┣ 📂constants<br />
+ ┃ ┃ ┗ 📜homeConstants.js<br />
+ ┃ ┣ 📂hooks<br />
+ ┃ ┃ ┣ 📜useGeoLocation.jsx<br />
+ ┃ ┃ ┣ 📜useInsertFeed.jsx<br />
+ ┃ ┃ ┣ 📜useLandingPage.jsx<br />
+ ┃ ┃ ┗ 📜useMyPage.jsx<br />
+ ┃ ┣ 📂pages<br />
+ ┃ ┃ ┣ 📂auth<br />
+ ┃ ┃ ┃ ┣ 📜Login.jsx<br />
+ ┃ ┃ ┃ ┗ 📜Signup.jsx<br />
+ ┃ ┃ ┣ 📂feed<br />
+ ┃ ┃ ┃ ┣ 📜Feed.jsx<br />
+ ┃ ┃ ┃ ┣ 📜ModalMap.jsx<br />
+ ┃ ┃ ┃ ┣ 📜Posting.jsx<br />
+ ┃ ┃ ┃ ┣ 📜RidingMap.jsx<br />
+ ┃ ┃ ┃ ┣ 📜Thumb.jsx<br />
+ ┃ ┃ ┃ ┗ 📜TopButton.jsx<br />
+ ┃ ┃ ┣ 📂home<br />
+ ┃ ┃ ┃ ┣ 📜Filter.jsx<br />
+ ┃ ┃ ┃ ┣ 📜Home.jsx<br />
+ ┃ ┃ ┃ ┣ 📜List.jsx<br />
+ ┃ ┃ ┃ ┣ 📜Pagination.jsx<br />
+ ┃ ┃ ┃ ┗ 📜Search.jsx<br />
+ ┃ ┃ ┣ 📂landing<br />
+ ┃ ┃ ┃ ┗ 📜Landing.jsx<br />
+ ┃ ┃ ┗ 📂myPage<br />
+ ┃ ┃ ┃ ┣ 📜Mypage.jsx<br />
+ ┃ ┃ ┃ ┗ 📜RideItem.jsx<br />
+ ┃ ┣ 📂queries<br />
+ ┃ ┃ ┣ 📜infiniteQueries.jsx<br />
+ ┃ ┃ ┣ 📜mutaions.jsx<br />
+ ┃ ┃ ┗ 📜query.keys.js<br />
+ ┃ ┣ 📂shared<br />
+ ┃ ┃ ┗ 📜Router.jsx<br />
+ ┃ ┣ 📂store<br />
+ ┃ ┃ ┗ 📜useUserStore.js<br />
+ ┃ ┣ 📂utils<br />
+ ┃ ┃ ┣ 📜calculateTotalDistance.js<br />
+ ┃ ┃ ┗ 📜scrollToTargetRef.js<br />
+ ┃ ┣ 📜App.jsx<br />
+ ┃ ┣ 📜index.css<br />
+ ┃ ┗ 📜main.jsx<br />
+ ┣ 📜.env.local<br />
+ ┣ 📜.gitignore<br />
+ ┣ 📜.prettierignore<br />
+ ┣ 📜.prettierrc<br />
+ ┣ 📜db.json<br />
+ ┣ 📜db1.json<br />
+ ┣ 📜db2.json<br />
+ ┣ 📜eslint.config.js<br />
+ ┣ 📜index.html<br />
+ ┣ 📜package.json<br />
+ ┣ 📜README.md<br />
+ ┣ 📜vercel.json<br />
+ ┣ 📜vite.config.js<br />
+ ┗ 📜yarn.lock<br />
  </details>
 
 <br/>
@@ -129,7 +229,7 @@ id생성방식을 변경하여 다른 id값을 지니게 해 문제를 해결하
 ### 김서연
 
 ```
-
+ 팀원 간의 패키지 관리 방식, CSS 스타일링 통일 필요성을 느꼈습니다. 다른 페이지에서도 사용되는 로직을 논의할 필요성을 느꼈습니다.
 ```
 
 <br/>
